@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{% endblock %}">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+<nav>
+    {% include "nav.html" %}
+</nav>
+
+{% block content %}{% endblock %}
+
+<footer>
+    {% include "footer.html" %}
+</footer>
+</body>
+</html>
