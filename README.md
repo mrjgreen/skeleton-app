@@ -8,6 +8,8 @@ A simple PHP framework agnostic skeleton application, with routing, controllers 
 ~~~
 git clone git@github.com:mrjgreen/skeleton-app.git
 
+cd skeleton-app
+
 composer install
 
 ./task serve
