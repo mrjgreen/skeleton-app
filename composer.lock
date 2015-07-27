@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "13783c073cc9b20d5512f9242bf18aac",
+    "hash": "5a5e09099ff6c884f42d2693948c5e60",
     "packages": [
         {
             "name": "filp/whoops",
@@ -63,48 +63,6 @@
                 "zf2"
             ],
             "time": "2015-06-29 05:42:04"
-        },
-        {
-            "name": "ircmaxell/password-compat",
-            "version": "v1.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ircmaxell/password_compat.git",
-                "reference": "5c5cde8822a69545767f7c7f3058cb15ff84614c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ircmaxell/password_compat/zipball/5c5cde8822a69545767f7c7f3058cb15ff84614c",
-                "reference": "5c5cde8822a69545767f7c7f3058cb15ff84614c",
-                "shasum": ""
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.*"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "lib/password.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Anthony Ferrara",
-                    "email": "ircmaxell@php.net",
-                    "homepage": "http://blog.ircmaxell.com"
-                }
-            ],
-            "description": "A compatibility library for the proposed simplified password hashing algorithm: https://wiki.php.net/rfc/password_hash",
-            "homepage": "https://github.com/ircmaxell/password_compat",
-            "keywords": [
-                "hashing",
-                "password"
-            ],
-            "time": "2014-11-20 16:49:30"
         },
         {
             "name": "league/container",
@@ -241,83 +199,6 @@
             "time": "2015-07-12 13:54:09"
         },
         {
-            "name": "mrjgreen/config",
-            "version": "v2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mrjgreen/config.git",
-                "reference": "0b5a4d9ae6637cd482d7ef9f44861d1a1acf5d6e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mrjgreen/config/zipball/0b5a4d9ae6637cd482d7ef9f44861d1a1acf5d6e",
-                "reference": "0b5a4d9ae6637cd482d7ef9f44861d1a1acf5d6e",
-                "shasum": ""
-            },
-            "require-dev": {
-                "codeception/specify": "0.*",
-                "phpunit/phpunit": "4.2.*",
-                "satooshi/php-coveralls": "0.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Config": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "description": "Config component based on laravel's",
-            "time": "2014-11-05 16:56:44"
-        },
-        {
-            "name": "mrjgreen/database",
-            "version": "2.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mrjgreen/database.git",
-                "reference": "99afc25e53d0c3dfe69d4955a9a57b3a462eafaf"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mrjgreen/database/zipball/99afc25e53d0c3dfe69d4955a9a57b3a462eafaf",
-                "reference": "99afc25e53d0c3dfe69d4955a9a57b3a462eafaf",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "psr/log": "~1.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "*",
-                "phpunit/phpunit": "*",
-                "satooshi/php-coveralls": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Database\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Joe Green",
-                    "email": "joe.green0991@gmail.com"
-                }
-            ],
-            "description": "Expressive Database Layer for PHP - Based on Illuminate/Database",
-            "keywords": [
-                "database",
-                "dbal",
-                "query builder",
-                "sql"
-            ],
-            "time": "2015-04-10 15:49:08"
-        },
-        {
             "name": "mrjgreen/error",
             "version": "v1.0.2",
             "source": {
@@ -344,41 +225,6 @@
             "notification-url": "https://packagist.org/downloads/",
             "description": "A stacked error handling library",
             "time": "2014-09-19 16:01:13"
-        },
-        {
-            "name": "phroute/authentic",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mrjgreen/authentic.git",
-                "reference": "8f5e226787d4e73409c40d495d9d7bc98eb23ba6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mrjgreen/authentic/zipball/8f5e226787d4e73409c40d495d9d7bc98eb23ba6",
-                "reference": "8f5e226787d4e73409c40d495d9d7bc98eb23ba6",
-                "shasum": ""
-            },
-            "require": {
-                "ircmaxell/password-compat": "~1.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "0.9.*",
-                "phpunit/phpunit": "~4.4",
-                "satooshi/php-coveralls": "dev-master",
-                "symfony/http-foundation": "~2.6"
-            },
-            "suggest": {
-                "symfony/http-foundation": "Use Symfony Session and Cookie components for auth token persistence"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Phroute\\Authentic\\": "src/Phroute/Authentic"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "time": "2015-04-21 22:09:48"
         },
         {
             "name": "phroute/phroute",
@@ -463,59 +309,6 @@
             "time": "2012-12-21 11:40:51"
         },
         {
-            "name": "swiftmailer/swiftmailer",
-            "version": "v5.4.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "0697e6aa65c83edf97bb0f23d8763f94e3f11421"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/0697e6aa65c83edf97bb0f23d8763f94e3f11421",
-                "reference": "0697e6aa65c83edf97bb0f23d8763f94e3f11421",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "mockery/mockery": "~0.9.1,<0.9.4"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "5.4-dev"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "lib/swift_required.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Chris Corbyn"
-                },
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                }
-            ],
-            "description": "Swiftmailer, free feature-rich PHP mailer",
-            "homepage": "http://swiftmailer.org",
-            "keywords": [
-                "email",
-                "mail",
-                "mailer"
-            ],
-            "time": "2015-06-06 14:19:39"
-        },
-        {
             "name": "symfony/console",
             "version": "v2.7.2",
             "source": {
@@ -573,6 +366,66 @@
             "time": "2015-07-09 16:07:40"
         },
         {
+            "name": "symfony/debug",
+            "version": "v2.7.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Debug.git",
+                "reference": "9daa1bf9f7e615fa2fba30357e479a90141222e3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Debug/zipball/9daa1bf9f7e615fa2fba30357e479a90141222e3",
+                "reference": "9daa1bf9f7e615fa2fba30357e479a90141222e3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9",
+                "psr/log": "~1.0"
+            },
+            "conflict": {
+                "symfony/http-kernel": ">=2.3,<2.3.24|~2.4.0|>=2.5,<2.5.9|>=2.6,<2.6.2"
+            },
+            "require-dev": {
+                "symfony/class-loader": "~2.2",
+                "symfony/http-foundation": "~2.1",
+                "symfony/http-kernel": "~2.3.24|~2.5.9|~2.6,>=2.6.2",
+                "symfony/phpunit-bridge": "~2.7"
+            },
+            "suggest": {
+                "symfony/http-foundation": "",
+                "symfony/http-kernel": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Debug\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Debug Component",
+            "homepage": "https://symfony.com",
+            "time": "2015-07-09 16:07:40"
+        },
+        {
             "name": "symfony/http-foundation",
             "version": "v2.7.2",
             "source": {
@@ -622,201 +475,6 @@
                 }
             ],
             "description": "Symfony HttpFoundation Component",
-            "homepage": "https://symfony.com",
-            "time": "2015-07-09 16:07:40"
-        },
-        {
-            "name": "symfony/security-core",
-            "version": "v2.7.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/security-core.git",
-                "reference": "de1a3aa7a298e99587f6082e4c5754a9b0dc0fcd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-core/zipball/de1a3aa7a298e99587f6082e4c5754a9b0dc0fcd",
-                "reference": "de1a3aa7a298e99587f6082e4c5754a9b0dc0fcd",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.9"
-            },
-            "require-dev": {
-                "ircmaxell/password-compat": "1.0.*",
-                "psr/log": "~1.0",
-                "symfony/event-dispatcher": "~2.1",
-                "symfony/expression-language": "~2.6",
-                "symfony/http-foundation": "~2.4",
-                "symfony/phpunit-bridge": "~2.7",
-                "symfony/translation": "~2.0,>=2.0.5",
-                "symfony/validator": "~2.5,>=2.5.5"
-            },
-            "suggest": {
-                "ircmaxell/password-compat": "For using the BCrypt password encoder in PHP <5.5",
-                "symfony/event-dispatcher": "",
-                "symfony/expression-language": "For using the expression voter",
-                "symfony/http-foundation": "",
-                "symfony/validator": "For using the user password constraint"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.7-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Security\\Core\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Security Component - Core Library",
-            "homepage": "https://symfony.com",
-            "time": "2015-07-09 16:07:40"
-        },
-        {
-            "name": "symfony/security-csrf",
-            "version": "v2.7.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/security-csrf.git",
-                "reference": "e438b3e7de930e2147e397830126d2f0d32a0088"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-csrf/zipball/e438b3e7de930e2147e397830126d2f0d32a0088",
-                "reference": "e438b3e7de930e2147e397830126d2f0d32a0088",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.9",
-                "symfony/security-core": "~2.4"
-            },
-            "require-dev": {
-                "symfony/http-foundation": "~2.1",
-                "symfony/phpunit-bridge": "~2.7"
-            },
-            "suggest": {
-                "symfony/http-foundation": "For using the class SessionTokenStorage."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.7-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Security\\Csrf\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Security Component - CSRF Library",
-            "homepage": "https://symfony.com",
-            "time": "2015-05-13 11:34:46"
-        },
-        {
-            "name": "symfony/twig-bridge",
-            "version": "v2.7.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/TwigBridge.git",
-                "reference": "4c8be3f7f1b44599b2cbec68b2b1b0e78ded2014"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/TwigBridge/zipball/4c8be3f7f1b44599b2cbec68b2b1b0e78ded2014",
-                "reference": "4c8be3f7f1b44599b2cbec68b2b1b0e78ded2014",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.9",
-                "twig/twig": "~1.18"
-            },
-            "require-dev": {
-                "symfony/asset": "~2.7",
-                "symfony/console": "~2.7",
-                "symfony/expression-language": "~2.4",
-                "symfony/finder": "~2.3",
-                "symfony/form": "~2.7,>=2.7.1",
-                "symfony/http-kernel": "~2.3",
-                "symfony/intl": "~2.3",
-                "symfony/phpunit-bridge": "~2.7",
-                "symfony/routing": "~2.2",
-                "symfony/security": "~2.6",
-                "symfony/stopwatch": "~2.2",
-                "symfony/templating": "~2.1",
-                "symfony/translation": "~2.7",
-                "symfony/var-dumper": "~2.6",
-                "symfony/yaml": "~2.0,>=2.0.5"
-            },
-            "suggest": {
-                "symfony/asset": "For using the AssetExtension",
-                "symfony/expression-language": "For using the ExpressionExtension",
-                "symfony/finder": "",
-                "symfony/form": "For using the FormExtension",
-                "symfony/http-kernel": "For using the HttpKernelExtension",
-                "symfony/routing": "For using the RoutingExtension",
-                "symfony/security": "For using the SecurityExtension",
-                "symfony/stopwatch": "For using the StopwatchExtension",
-                "symfony/templating": "For using the TwigEngine",
-                "symfony/translation": "For using the TranslationExtension",
-                "symfony/var-dumper": "For using the DumpExtension",
-                "symfony/yaml": "For using the YamlExtension"
-            },
-            "type": "symfony-bridge",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.7-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Bridge\\Twig\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Twig Bridge",
             "homepage": "https://symfony.com",
             "time": "2015-07-09 16:07:40"
         },
@@ -1833,10 +1491,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "phroute/authentic": 20,
-        "swiftmailer/swiftmailer": 0
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

@@ -1,8 +1,9 @@
 <?php namespace Application\Provider;
 
-use League\Container\Container as Container;
+use League\Container\Container;
+use Symfony\Component\HttpFoundation\Request;
 
-class Request implements ProviderInterface
+class RequestProvider implements ProviderInterface
 {
     /**
      * @param Container $app
@@ -11,7 +12,7 @@ class Request implements ProviderInterface
     {
         $app['request'] = function()
         {
-            return \Symfony\Component\HttpFoundation\Request::createFromGlobals();
+            return Request::createFromGlobals();
         };
     }
 }

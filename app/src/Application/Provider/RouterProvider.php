@@ -5,7 +5,7 @@ use Phroute\Phroute\Dispatcher;
 use Phroute\Phroute\RouteCollector;
 use League\Container\Container as Container;
 
-class Router implements ProviderInterface
+class RouterProvider implements ProviderInterface
 {
     /**
      * @var string

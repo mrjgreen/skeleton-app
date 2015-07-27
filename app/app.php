@@ -1,5 +1,9 @@
 <?php
 
+use Symfony\Component\Debug\ErrorHandler;
+// Convert errors to exceptions for the application
+ErrorHandler::register();
+
 $app = new \League\Container\Container;
 
 /*
@@ -13,11 +17,10 @@ $app = new \League\Container\Container;
 $app['paths'] = array(
     'app'       => __DIR__,
     'public'    => __DIR__ . '/../public',
-    'config'    => __DIR__ . '/config',
+    'config'    => __DIR__ . '/config.php',
     'view'      => __DIR__ . '/views',
     'storage'   => __DIR__ . '/storage',
     'routes'    => __DIR__ . '/routes.php',
-    'vendor'    => __DIR__ . '/../vendor',
 );
 
 /*
@@ -30,18 +33,14 @@ $app['paths'] = array(
  * the boot order is important.
  */
 $providers = array(
-    new Application\Provider\Config,
-    new Application\Provider\View,
-    new Application\Provider\Log,
-    new Application\Provider\Error,
-    new Application\Provider\Request,
-    new Application\Provider\Session,
-    new Application\Provider\Router,
-    new Application\Provider\Database,
-    new Application\Provider\Controllers,
-    new Application\Provider\Authentication,
-    new Application\Provider\Dispatch,
-    new Application\Provider\Mailer,
+    new Application\Provider\ConfigProvider,
+    new Application\Provider\ViewProvider,
+    new Application\Provider\LogProvider,
+    new Application\Provider\RequestProvider,
+    new Application\Provider\SessionProvider,
+    new Application\Provider\RouterProvider,
+    new Application\Provider\ControllerProvider,
+    new Application\Provider\DispatchProvider,
 );
 
 array_walk($providers, function($provider) use($app){ $provider->register($app); });

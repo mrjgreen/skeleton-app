@@ -6,6 +6,6 @@ $app = require __DIR__ . '/app/app.php';
 
 $console = new \Symfony\Component\Console\Application();
 
-$console->add($app['Application\Command\CreateUserCommand']);
+$console->add($app['Application\Command\ExampleCommand']);
 
 $console->run();

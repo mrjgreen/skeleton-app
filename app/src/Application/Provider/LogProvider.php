@@ -4,7 +4,7 @@ use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use League\Container\Container as Container;
 
-class Log
+class LogProvider
 {
     public function register(Container $app)
     {

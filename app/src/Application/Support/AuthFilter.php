@@ -7,27 +7,17 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class AuthFilter
 {
-    private $authenticator;
-
     private $session;
 
-    private $request;
-
-    public function __construct(Authenticator $authenticator, Request $request, SessionInterface $session)
+    public function __construct(SessionInterface $session)
     {
-        $this->authenticator = $authenticator;
-
-        $this->request = $request;
-
         $this->session = $session;
     }
 
     public function filter()
     {
-        if(!$this->authenticator->check())
+        if(!$this->session->get('user'))
         {
-            $this->session->set('login.intended', $this->request->getRequestUri());
-
             return new RedirectResponse('/login');
         }
     }

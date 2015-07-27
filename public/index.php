@@ -22,5 +22,7 @@ $app = require __DIR__ . '/../app/app.php';
  * Dispatch the route to the correct controller and return the response.
  * NB. If the request had a method HEAD we correctly remove the response
  * body sending only the headers.
+ *
+ * We then send the response to the browser
  */
-$app->call('dispatch');
+$app->call('dispatch', [$app['request']])->send();
