@@ -15,3 +15,4 @@ composer install
 ./task serve
 ~~~
 
+Now you can open your web browser at http://localhost:8080
