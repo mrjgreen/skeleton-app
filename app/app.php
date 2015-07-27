@@ -21,6 +21,7 @@ $app['paths'] = array(
     'view'      => __DIR__ . '/views',
     'storage'   => __DIR__ . '/storage',
     'routes'    => __DIR__ . '/routes.php',
+    'commands'    => __DIR__ . '/commands.php',
 );
 
 /*
@@ -41,6 +42,7 @@ $providers = array(
     new Application\Provider\RouterProvider,
     new Application\Provider\ControllerProvider,
     new Application\Provider\DispatchProvider,
+    new Application\Provider\CommandProvider,
 );
 
 array_walk($providers, function($provider) use($app){ $provider->register($app); });

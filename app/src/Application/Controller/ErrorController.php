@@ -2,7 +2,7 @@
 
 use Symfony\Component\HttpFoundation\Response;
 
-class ErrorController extends BaseController
+class ErrorController extends ControllerAbstract
 {
     public function error404()
     {

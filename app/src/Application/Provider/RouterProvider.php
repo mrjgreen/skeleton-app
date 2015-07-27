@@ -8,11 +8,6 @@ use League\Container\Container as Container;
 class RouterProvider implements ProviderInterface
 {
     /**
-     * @var string
-     */
-    private $cacheKey = 'application.route-dispatcher';
-
-    /**
      * @param Container $app
      */
     public function register(Container $app)
@@ -54,12 +49,12 @@ class RouterProvider implements ProviderInterface
         {
             $data = $callback();
 
-            file_put_contents($this->cacheKey, serialize($data));
+            file_put_contents($cacheFile, serialize($data));
 
             return $data;
         }
 
-        if($cached = file_get_contents($this->cacheKey))
+        if($cached = file_get_contents($cacheFile))
         {
             return unserialize($cached);
         }

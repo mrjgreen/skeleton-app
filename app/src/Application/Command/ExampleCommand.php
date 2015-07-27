@@ -1,10 +1,6 @@
 <?php namespace Application\Command;
 
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-
-class ExampleCommand extends Command
+class ExampleCommand extends CommandAbstract
 {
     protected function configure()
     {
@@ -14,8 +10,8 @@ class ExampleCommand extends Command
         ;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function fire()
     {
-        $output->writeln("<info>Success! You've ran the example!</info>");
+        $this->success("Success! You've ran the example!");
     }
 }

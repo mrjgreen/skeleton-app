@@ -5,7 +5,7 @@ use Application\Controller\Traits\SessionAwareTrait;
 use Application\Controller\Traits\ViewAwareTrait;
 use Psr\Log\LoggerAwareTrait;
 
-class BaseController
+abstract class ControllerAbstract
 {
     use LoggerAwareTrait;
     use RequestAwareTrait;

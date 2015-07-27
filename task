@@ -4,8 +4,10 @@ require __DIR__ . '/vendor/autoload.php';
 
 $app = require __DIR__ . '/app/app.php';
 
-$console = new \Symfony\Component\Console\Application();
+use Symfony\Component\Console\Application;
 
-$console->add($app['Application\Command\ExampleCommand']);
+$console = new Application();
+
+array_map([$console, 'add'], $app['commands']);
 
 $console->run();

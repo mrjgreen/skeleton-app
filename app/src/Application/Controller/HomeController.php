@@ -1,6 +1,6 @@
 <?php namespace Application\Controller;
 
-class HomeController extends BaseController
+class HomeController extends ControllerAbstract
 {
     public function getIndex()
     {
