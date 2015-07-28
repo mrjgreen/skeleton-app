@@ -8,13 +8,13 @@ class ViewProvider
     {
         $app['view'] = function() use($app){
 
-            $loader = new \Twig_Loader_Filesystem(array(
+            $loader = new \Twig_Loader_Filesystem([
                 $app['paths']['view'],
-            ));
+            ]);
 
-            $twig = new \Twig_Environment($loader, array(
+            $twig = new \Twig_Environment($loader, [
                 'cache' => $app['config']['view.cache'] ? $app['paths']['storage'] . '/views' : null,
-            ));
+            ]);
 
             return $twig;
         };

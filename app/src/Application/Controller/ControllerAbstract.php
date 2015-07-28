@@ -12,7 +12,7 @@ abstract class ControllerAbstract
     use ViewAwareTrait;
     use SessionAwareTrait;
 
-    public function render($view, array $data = array())
+    public function render($view, array $data = [])
     {
         return $this->view->render($view, $data);
     }

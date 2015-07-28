@@ -5,7 +5,9 @@ use League\Container\Container as Container;
 class ControllerProvider
 {
     protected $controllers = [
-        'Application\Controller\HomeController' => [],
+        'Application\Controller\HomeController' => [
+            'Application\Repository\UserRepository'
+        ],
         'Application\Controller\ErrorController' => [],
     ];
 

@@ -1,6 +1,6 @@
 <?php namespace Application;
 
-return array(
+return [
     'Application\Command\ServeCommand',
     'Application\Command\ExampleCommand'
-);
+];

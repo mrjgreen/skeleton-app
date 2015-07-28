@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5a5e09099ff6c884f42d2693948c5e60",
+    "hash": "60acc54dbd22c479312024f1851714b8",
     "packages": [
         {
             "name": "filp/whoops",
@@ -197,6 +197,54 @@
                 "psr-3"
             ],
             "time": "2015-07-12 13:54:09"
+        },
+        {
+            "name": "mrjgreen/database",
+            "version": "2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mrjgreen/database.git",
+                "reference": "99afc25e53d0c3dfe69d4955a9a57b3a462eafaf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mrjgreen/database/zipball/99afc25e53d0c3dfe69d4955a9a57b3a462eafaf",
+                "reference": "99afc25e53d0c3dfe69d4955a9a57b3a462eafaf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "psr/log": "~1.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "*",
+                "phpunit/phpunit": "*",
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Database\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joe Green",
+                    "email": "joe.green0991@gmail.com"
+                }
+            ],
+            "description": "Expressive Database Layer for PHP - Based on Illuminate/Database",
+            "keywords": [
+                "database",
+                "dbal",
+                "query builder",
+                "sql"
+            ],
+            "time": "2015-04-10 15:49:08"
         },
         {
             "name": "mrjgreen/error",

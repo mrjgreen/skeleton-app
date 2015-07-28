@@ -66,6 +66,7 @@ class DispatchProvider implements ProviderInterface
         $whoops = (new WhoopsRun)->pushHandler(new PrettyPageHandler);
 
         $whoops->writeToOutput(false);
+        $whoops->allowQuit(false);
 
         return $whoops->handleException($e);
     }

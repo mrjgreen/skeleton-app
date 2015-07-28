@@ -14,7 +14,7 @@ $app = new \League\Container\Container;
  * Useful application file paths can be configured centrally, relative to
  * this directory for simple directory refactoring
  */
-$app['paths'] = array(
+$app['paths'] = [
     'app'       => __DIR__,
     'public'    => __DIR__ . '/../public',
     'config'    => __DIR__ . '/config.php',
@@ -22,7 +22,7 @@ $app['paths'] = array(
     'storage'   => __DIR__ . '/storage',
     'routes'    => __DIR__ . '/routes.php',
     'commands'    => __DIR__ . '/commands.php',
-);
+];
 
 /*
  *--------------------------------------------------------------------------
@@ -33,17 +33,18 @@ $app['paths'] = array(
  * the dependency injection container. Some services depend on others, so
  * the boot order is important.
  */
-$providers = array(
+$providers = [
     new Application\Provider\ConfigProvider,
     new Application\Provider\ViewProvider,
     new Application\Provider\LogProvider,
     new Application\Provider\RequestProvider,
+    new Application\Provider\DatabaseProvider,
     new Application\Provider\SessionProvider,
     new Application\Provider\RouterProvider,
     new Application\Provider\ControllerProvider,
     new Application\Provider\DispatchProvider,
     new Application\Provider\CommandProvider,
-);
+];
 
 array_walk($providers, function($provider) use($app){ $provider->register($app); });
 
