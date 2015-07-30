@@ -4,8 +4,66 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "30317c533969de8a51ea6b2abab00749",
+    "hash": "a7fb91a66f7f4cbe1cd93540ae48aaf9",
     "packages": [
+        {
+            "name": "filp/whoops",
+            "version": "1.1.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/filp/whoops.git",
+                "reference": "72538eeb70bbfb11964412a3d098d109efd012f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/72538eeb70bbfb11964412a3d098d109efd012f7",
+                "reference": "72538eeb70bbfb11964412a3d098d109efd012f7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Whoops": "src/"
+                },
+                "classmap": [
+                    "src/deprecated"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Filipe Dobreira",
+                    "homepage": "https://github.com/filp",
+                    "role": "Developer"
+                }
+            ],
+            "description": "php error handling for cool kids",
+            "homepage": "https://github.com/filp/whoops",
+            "keywords": [
+                "error",
+                "exception",
+                "handling",
+                "library",
+                "silex-provider",
+                "whoops",
+                "zf2"
+            ],
+            "time": "2015-06-29 05:42:04"
+        },
         {
             "name": "ircmaxell/password-compat",
             "version": "v1.0.4",
@@ -236,12 +294,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mrjgreen/validation.git",
-                "reference": "fc16019bfca05e3bdc2efe718794b7aff4ace8e7"
+                "reference": "f2957a2c42199b28e45204882ffc875f08d00bf0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mrjgreen/validation/zipball/fc16019bfca05e3bdc2efe718794b7aff4ace8e7",
-                "reference": "fc16019bfca05e3bdc2efe718794b7aff4ace8e7",
+                "url": "https://api.github.com/repos/mrjgreen/validation/zipball/f2957a2c42199b28e45204882ffc875f08d00bf0",
+                "reference": "f2957a2c42199b28e45204882ffc875f08d00bf0",
                 "shasum": ""
             },
             "require": {
@@ -249,11 +307,6 @@
                 "symfony/http-foundation": "2.4.*"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.2-dev"
-                }
-            },
             "autoload": {
                 "psr-0": {
                     "Validation": ""
@@ -273,7 +326,7 @@
                     "email": "taylorotwell@gmail.com"
                 }
             ],
-            "time": "2015-04-19 19:44:19"
+            "time": "2015-07-30 20:29:09"
         },
         {
             "name": "phroute/authentic",

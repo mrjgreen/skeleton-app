@@ -63,13 +63,11 @@ class DispatchProvider implements ProviderInterface
 
     private function debug(\Exception $e)
     {
-        throw $e;
+        $whoops = (new WhoopsRun)->pushHandler(new PrettyPageHandler);
 
-//        $whoops = (new WhoopsRun)->pushHandler(new PrettyPageHandler);
-//
-//        $whoops->writeToOutput(false);
-//        $whoops->allowQuit(false);
-//
-//        return new Response($whoops->handleException($e), 500);
+        $whoops->writeToOutput(false);
+        $whoops->allowQuit(false);
+
+        return new Response($whoops->handleException($e), 500);
     }
 }

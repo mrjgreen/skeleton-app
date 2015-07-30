@@ -4,6 +4,14 @@ return [
 
     'app.csrf_secret' => 't6=0er98jv1c7/ufb82hgva123r',
 
+    'mail.driver' => 'mail',
+
+    'mail.config' => [],
+
+    'mail.from.email' => 'info@local.dev',
+
+    'mail.from.name' => 'Web App',
+
     'router.cache' => false,
 
     'view.cache' => false,

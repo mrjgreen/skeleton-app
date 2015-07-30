@@ -10,8 +10,6 @@ class AccountDetailsForm extends AbstractType
         $builder
                 ->add('firstname', 'text', ['required' => false])
                 ->add('surname', 'text', ['required' => false])
-                ->add('country', 'text', ['required' => false])
-                ->add('phone', 'text', ['required' => false])
                 ->add('submit', 'submit', ['label' => 'Update Details']);
     }
 

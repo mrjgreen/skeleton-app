@@ -10,7 +10,7 @@ class NewUserValidator extends AbstractValidator
             'firstname'     => ['required', 'max:100'],
             'surname'       => ['required', 'max:100'],
             'accept_terms'  => ['accepted'],
-            'accept_none'   => ['max:0'], // Spam-bot trap
+            'accept_none'   => ['max:0'], // Spam-bot trap - its a hidden field so should be empty
         );
 
         parent::__construct($validators);

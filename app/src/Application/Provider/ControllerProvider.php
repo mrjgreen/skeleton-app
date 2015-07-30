@@ -5,9 +5,15 @@ use League\Container\Container as Container;
 class ControllerProvider
 {
     protected $controllers = [
-        'Application\Controller\HomeController' => [
+        'Application\Controller\HomeController' => [],
+
+        'Application\Controller\LoginController' => [
             'Phroute\Authentic\Authenticator',
             'Application\Services\IpBlocker\IpBlocker',
+        ],
+
+        'Application\Controller\LogoutController' => [
+            'Phroute\Authentic\Authenticator',
         ],
 
         'Application\Controller\PasswordResetController' => [

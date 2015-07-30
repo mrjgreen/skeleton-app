@@ -51,7 +51,7 @@ class AccountController extends ControllerAbstract
      */
     private function renderIndex(FormInterface $userForm)
     {
-        return $this->render('dashboard/account.html', array(
+        return $this->render('home/account.html', array(
             'account'  => $userForm->createView(),
             'updated'  => (bool)$this->flash->get('account.updated')
         ));

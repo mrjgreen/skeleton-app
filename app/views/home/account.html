@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}Account{% endblock %}
+{% block description %}Account{% endblock %}
+{% block content %}
+<div class="container">
+
+    <div class="row">
+        <div class="col-xs-6">
+            <h1>Account</h1>
+            <p>Please enter a new password</p>
+            {{form(account)}}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -11,24 +11,18 @@ return function(RouteCollector $route){
     $route->filter('guest', array('Application\Support\GuestFilter', 'filter'));
     $route->filter('admin', array('Application\Support\AdminFilter', 'filter'));
 
-
+    $route->get('/', array('Application\Controller\HomeController', 'getIndex'));
 
     $route->group(array('before' => 'guest'), function() use($route){
 
-        $route->post('/register', array('Application\Controller\HomeController', 'postRegister'));
-
-        $route->get('/register', array('Application\Controller\HomeController', 'getRegister'));
-
-        $route->post('/login', array('Application\Controller\HomeController', 'postLogin'));
-
-        $route->get('/', array('Application\Controller\HomeController', 'getIndex'));
+        $route->controller('/', 'Application\Controller\LoginController');
 
         $route->controller('/recovery', 'Application\Controller\PasswordResetController');
     });
 
     $route->group(array('before' => 'auth'), function() use($route){
 
-        $route->get('/logout', array('Application\Controller\HomeController', 'getLogout'));
+        $route->get('/logout', array('Application\Controller\LogoutController', 'getLogout'));
 
         $route->controller('/account', 'Application\Controller\AccountController');
     });

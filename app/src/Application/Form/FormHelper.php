@@ -43,7 +43,10 @@ class FormHelper
 
     public function validate(FormInterface $form, ValidatorInterface $validator)
     {
-        $errors = $validator->validate($form->getData());
+        // Get all data, mapped or unmapped
+        $errors = $validator->validate(array_map(function(FormInterface $form){
+            return $form->getData();
+        }, $form->all()));
 
         if(count($errors) === 0)
         {

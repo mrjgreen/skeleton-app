@@ -41,6 +41,8 @@ abstract class ControllerAbstract
 
     public function render($view, array $data = [])
     {
-        return $this->view->render($view, $data);
+        return $this->view->render($view, $data + array(
+            'user' => $this->user
+        ));
     }
 }
