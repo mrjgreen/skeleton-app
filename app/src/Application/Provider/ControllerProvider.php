@@ -6,9 +6,16 @@ class ControllerProvider
 {
     protected $controllers = [
         'Application\Controller\HomeController' => [
-            'Application\Repository\UserRepository'
+            'Phroute\Authentic\Authenticator',
+            'Application\Services\IpBlocker\IpBlocker',
         ],
-        'Application\Controller\ErrorController' => [],
+
+        'Application\Controller\PasswordResetController' => [
+            'Phroute\Authentic\Authenticator',
+            'Application\Services\Mailer',
+        ],
+
+        'Application\Controller\AccountController' => [],
     ];
 
     public function register(Container $app)
@@ -17,9 +24,11 @@ class ControllerProvider
         {
             $app->add($controller)
                 ->withArguments($ctorArgs)
+                ->withMethodCall('setUser', ['auth.user'])
                 ->withMethodCall('setRequest', ['request'])
                 ->withMethodCall('setView', ['view'])
                 ->withMethodCall('setSession', ['session'])
+                ->withMethodCall('setFormHelper', ['Application\Form\FormHelper'])
             ;
         }
     }

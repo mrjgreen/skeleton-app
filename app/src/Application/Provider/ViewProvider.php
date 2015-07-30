@@ -1,6 +1,10 @@
 <?php namespace Application\Provider;
 
+use Application\Support\DummyTranslationFilters;
 use League\Container\Container as Container;
+use Symfony\Bridge\Twig\Extension\FormExtension;
+use Symfony\Bridge\Twig\Form\TwigRenderer;
+use Symfony\Bridge\Twig\Form\TwigRendererEngine;
 
 class ViewProvider
 {
@@ -8,13 +12,24 @@ class ViewProvider
     {
         $app['view'] = function() use($app){
 
-            $loader = new \Twig_Loader_Filesystem([
+            $loader = new \Twig_Loader_Filesystem(array(
                 $app['paths']['view'],
-            ]);
+                $app['paths']['vendor'] . '/symfony/twig-bridge/Resources/views/Form',
+            ));
 
-            $twig = new \Twig_Environment($loader, [
+            $twig = new \Twig_Environment($loader, array(
                 'cache' => $app['config']['view.cache'] ? $app['paths']['storage'] . '/views' : null,
-            ]);
+            ));
+
+            $twig->addExtension(new DummyTranslationFilters());
+
+            $formEngine = new TwigRendererEngine(array('bootstrap_3_horizontal_layout.html.twig'));
+            $formEngine->setEnvironment($twig);
+
+            // add the FormExtension to Twig
+            $twig->addExtension(
+                new FormExtension(new TwigRenderer($formEngine))
+            );
 
             return $twig;
         };

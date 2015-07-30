@@ -2,11 +2,17 @@
 return [
     'app.debug' => true,
 
+    'app.csrf_secret' => 't6=0er98jv1c7/ufb82hgva123r',
+
     'router.cache' => false,
 
     'view.cache' => false,
 
     'session.name' => 's_id',
+
+    'auth.max_attempts' => 10,
+
+    'auth.ban_period_minutes' => 10,
 
     'database.default' => 'mysql',
 

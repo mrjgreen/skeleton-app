@@ -1,6 +1,8 @@
 <?php namespace Application\Entity;
 
-class User extends EntityAbstract
+use Phroute\Authentic\User\UserInterface;
+
+class User extends EntityAbstract implements UserInterface
 {
     public function getFirstname()
     {

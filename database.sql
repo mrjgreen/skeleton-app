@@ -15,3 +15,11 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `idx_user_email` (`email`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `ip_blacklist` (
+  `ipn` int(10) unsigned NOT NULL,
+  `ip_address` varchar(255) DEFAULT NULL,
+  `attempts` int(11) NOT NULL DEFAULT '0',
+  `banned_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`ipn`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

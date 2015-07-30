@@ -3,12 +3,13 @@
 use Application\Entity\User;
 use Application\Support\Status;
 use Database\Connection;
+use Phroute\Authentic\User\UserRepositoryInterface;
 
 /**
  * Class UserRepository
  * @package Application\Repository
  */
-class UserRepository extends RepositoryAbstract
+class UserRepository extends RepositoryAbstract implements UserRepositoryInterface
 {
     public function __construct(Connection $dbConnection)
     {

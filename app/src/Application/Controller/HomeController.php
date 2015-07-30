@@ -1,46 +1,162 @@
 <?php namespace Application\Controller;
 
-use Application\Entity\User;
-use Application\Repository\UserRepository;
+use Application\Form\LoginForm;
+use Application\Form\RegisterForm;
+use Application\Validation\NewUserValidator;
+use Application\Services\IpBlocker\IpBlocker;
+use Phroute\Authentic\Authenticator;
+use Phroute\Authentic\Exception\AuthenticationException;
+use Phroute\Authentic\Exception\UserExistsException;
+use Symfony\Component\Form\FormError;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class HomeController extends ControllerAbstract
 {
-    private $userRepository;
+    /**
+     * @var Authenticator
+     */
+    protected $authenticator;
 
     /**
-     * @param UserRepository $userRepository
+     * @var IpBlocker
      */
-    public function __construct(UserRepository $userRepository)
+    protected $ipBlocker;
+
+    /**
+     * @param Authenticator $authenticator
+     * @param IpBlocker $ipBlocker
+     */
+    public function __construct(Authenticator $authenticator, IpBlocker $ipBlocker)
     {
-        $this->userRepository = $userRepository;
+        $this->authenticator = $authenticator;
+
+        $this->ipBlocker = $ipBlocker;
     }
 
+    /**
+     * @return RedirectResponse
+     */
+    public function getLogout()
+    {
+        $this->authenticator->logout();
+
+        $this->user = null;
+
+        return new RedirectResponse('/login');
+    }
+
+    /**
+     * @return string
+     */
     public function getIndex()
     {
-        return $this->render('home/index.html');
+        return $this->renderLogin($this->getLoginForm(), $this->getRegisterForm());
     }
 
     /**
-     * This is just an example... obviously we don't delete the user in a real app!
-     *
-     * @return array
+     * @return string|RedirectResponse
      */
-    public function postRegisterNewUser()
+    public function postLogin()
     {
-        $exampleUser = [
-            'email'     => 'test@example.com',
-            'password'  => password_hash('foobar', PASSWORD_DEFAULT),
-            'firstname' => 'Joe',
-            'surname'   => 'Green',
-        ];
-
-        if($user = $this->userRepository->findByLogin($exampleUser['email']))
+        if($this->ipBlocker->isBanned())
         {
-            $user->delete();
+            return new RedirectResponse('/');
         }
 
-        $userObj = $this->userRepository->registerUser($exampleUser);
+        $loginForm = $this->getLoginForm();
 
-        return $userObj->toArray();
+        $data = $loginForm->handleRequest($this->request)->getData();
+
+        try
+        {
+            $this->authenticator->authenticate($data, $this->request->get('remember'));
+        }
+        catch(AuthenticationException $e)
+        {
+            $this->ipBlocker->loginFailure();
+
+            $loginForm->addError(new FormError('Your email address or password is incorrect'));
+
+            return $this->renderLogin($loginForm, $this->getRegisterForm());
+        }
+
+        $this->ipBlocker->loginSuccess();
+
+        return new RedirectResponse($this->getReturnUrl());
+    }
+
+    /**
+     * @return string|RedirectResponse
+     */
+    public function postRegister()
+    {
+        $form = $this->getRegisterForm()->handleRequest($this->request);
+
+        if(!$this->formHelper->validate($form, new NewUserValidator()))
+        {
+            return $this->renderLogin($this->getLoginForm(), $form);
+        }
+
+        $data = $form->getData();
+
+        try
+        {
+            $this->authenticator->register($data);
+        }
+        catch(UserExistsException $e)
+        {
+            $this->ipBlocker->loginFailure();
+
+            $form->addError(new FormError('This email address has already been registered'));
+
+            return $this->renderLogin($this->getLoginForm(), $form);
+        }
+
+        $this->authenticator->authenticate($data);
+
+        return new RedirectResponse($this->getReturnUrl());
+    }
+
+    /**
+     * @return \Symfony\Component\Form\Form
+     */
+    private function getRegisterForm()
+    {
+        return $this->formHelper->build(new RegisterForm(), '/register')->getForm();
+    }
+
+    /**
+     * @return \Symfony\Component\Form\Form
+     */
+    private function getLoginForm()
+    {
+        return $this->formHelper->build(new LoginForm(), '/login')->getForm();
+    }
+
+    /**
+     * @return mixed
+     */
+    private function getReturnUrl()
+    {
+        $url = $this->session->get('login.intended', '/');
+
+        $this->session->remove('login.intended');
+
+        return $url;
+    }
+
+    /**
+     * @param FormInterface $loginForm
+     * @param FormInterface $registerForm
+     * @return string
+     */
+    private function renderLogin(FormInterface $loginForm, FormInterface $registerForm)
+    {
+        return $this->render('home/login.html', array(
+            'banned' => $this->ipBlocker->isBanned(),
+            'register'  => $registerForm->createView(),
+            'login'     => $loginForm->createView(),
+        ));
     }
 }

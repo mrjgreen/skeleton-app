@@ -16,12 +16,13 @@ $app = new \League\Container\Container;
  */
 $app['paths'] = [
     'app'       => __DIR__,
+    'vendor'    => __DIR__ . '/../vendor',
     'public'    => __DIR__ . '/../public',
     'config'    => __DIR__ . '/config.php',
     'view'      => __DIR__ . '/views',
     'storage'   => __DIR__ . '/storage',
     'routes'    => __DIR__ . '/routes.php',
-    'commands'    => __DIR__ . '/commands.php',
+    'commands'  => __DIR__ . '/commands.php',
 ];
 
 /*
@@ -44,6 +45,10 @@ $providers = [
     new Application\Provider\ControllerProvider,
     new Application\Provider\DispatchProvider,
     new Application\Provider\CommandProvider,
+    new Application\Provider\AuthenticationProvider,
+    new Application\Provider\IpBlockerProvider,
+    new Application\Provider\MailerProvider,
+    new Application\Provider\FormBuilderProvider,
 ];
 
 array_walk($providers, function($provider) use($app){ $provider->register($app); });
