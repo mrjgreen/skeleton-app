@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}Login or Register{% endblock %}
+{% block content %}
+<div class="container">
+
+    {% if banned %}
+    <p>Your IP address has been banned.</p>
+    {% else %}
+    <div class="row">
+        <div class="col-lg-5 col-md-6 col-sm-12">
+            <h4>Sign In!</h4>
+            {{form(login)}} <a href="/recovery">Forgotten Password?</a>
+        </div>
+
+        <div class="col-lg-5 col-lg-offset-2 col-md-6 col-sm-12">
+            <h4>Register!</h4>
+            {{form(register)}}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
