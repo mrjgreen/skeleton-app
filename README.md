@@ -20,3 +20,14 @@ composer install
 ~~~
 
 Now you can open your web browser at http://localhost:8080 or run the tests with `phpunit`
+
+##Features
+
+ * Dependency injection (on controllers too) via Provider pattern and `League\Container`
+ * Fast request routing with `Phroute`
+ * Simple configuration with PHP array (could combine with dotenv for environment based config)
+ * Fully testable controllers and routes via `phpunit`
+ * Templating with `Twig`
+ * Command line tool built in ./task in base directory for `symfony/console` commands
+ * Built in web server command `./task serve` in base directory
+ * DBAL tool and connection manager via `mrjgreen/database`
