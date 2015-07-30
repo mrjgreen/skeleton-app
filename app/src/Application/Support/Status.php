@@ -2,5 +2,5 @@
 
 interface Status
 {
-    const LIVE = 1;
+    const LIVE = 'OK';
 }

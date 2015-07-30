@@ -22,14 +22,11 @@ class HomePageTest extends TestCase
      */
     public function testNewUser()
     {
-        // home page
         $response = $this->call('POST', 'register-new-user');
         $this->assertEquals(200, $response->getStatusCode());
-        var_dump($response->getContent());
 
-        // 404 page
-        $response = $this->call('GET', 'list-users');
-        $this->assertEquals(200, $response->getStatusCode());
-        var_dump($response->getContent());
+        $user = json_decode($response->getContent());
+
+        $this->assertEquals('Joe', $user->firstname);
     }
 }

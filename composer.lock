@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "60acc54dbd22c479312024f1851714b8",
+    "hash": "59d3135b13fe7d9c90454a931f74a93a",
     "packages": [
         {
             "name": "filp/whoops",
@@ -245,34 +245,6 @@
                 "sql"
             ],
             "time": "2015-04-10 15:49:08"
-        },
-        {
-            "name": "mrjgreen/error",
-            "version": "v1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mrjgreen/error.git",
-                "reference": "29898e190f71d653e8fb9f1ff65a3203fad5be59"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mrjgreen/error/zipball/29898e190f71d653e8fb9f1ff65a3203fad5be59",
-                "reference": "29898e190f71d653e8fb9f1ff65a3203fad5be59",
-                "shasum": ""
-            },
-            "require-dev": {
-                "phpunit/phpunit": "*",
-                "satooshi/php-coveralls": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Error": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "description": "A stacked error handling library",
-            "time": "2014-09-19 16:01:13"
         },
         {
             "name": "phroute/phroute",

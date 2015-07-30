@@ -56,18 +56,20 @@ class DispatchProvider implements ProviderInterface
         }catch(\Exception $e)
         {
             return $this->app['config']['app.debug'] ?
-                $this->whoops($e) :
+                $this->debug($e) :
                 $this->app['Application\Controller\ErrorController']->error500($e);
         }
     }
 
-    private function whoops(\Exception $e)
+    private function debug(\Exception $e)
     {
-        $whoops = (new WhoopsRun)->pushHandler(new PrettyPageHandler);
+        throw $e;
 
-        $whoops->writeToOutput(false);
-        $whoops->allowQuit(false);
-
-        return $whoops->handleException($e);
+//        $whoops = (new WhoopsRun)->pushHandler(new PrettyPageHandler);
+//
+//        $whoops->writeToOutput(false);
+//        $whoops->allowQuit(false);
+//
+//        return new Response($whoops->handleException($e), 500);
     }
 }

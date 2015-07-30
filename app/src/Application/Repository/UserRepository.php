@@ -42,7 +42,7 @@ class UserRepository extends RepositoryAbstract
 
     /**
      * @param $login
-     * @return User[]
+     * @return User
      * @throws EntityNotFoundException
      */
     public function findByLogin($login)
@@ -74,6 +74,6 @@ class UserRepository extends RepositoryAbstract
      */
     public function findAllActiveUsers()
     {
-        return $this->findAllWhere(['status_value' => Status::LIVE]);
+        return $this->findAllWhere(['row_status' => Status::LIVE]);
     }
 }

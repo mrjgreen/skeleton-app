@@ -1,5 +1,6 @@
 <?php namespace Application\Controller;
 
+use Application\Entity\User;
 use Application\Repository\UserRepository;
 
 class HomeController extends ControllerAbstract
@@ -19,6 +20,11 @@ class HomeController extends ControllerAbstract
         return $this->render('home/index.html');
     }
 
+    /**
+     * This is just an example... obviously we don't delete the user in a real app!
+     *
+     * @return array
+     */
     public function postRegisterNewUser()
     {
         $exampleUser = [
@@ -28,13 +34,13 @@ class HomeController extends ControllerAbstract
             'surname'   => 'Green',
         ];
 
+        if($user = $this->userRepository->findByLogin($exampleUser['email']))
+        {
+            $user->delete();
+        }
+
         $userObj = $this->userRepository->registerUser($exampleUser);
 
         return $userObj->toArray();
-    }
-
-    public function getListUsers()
-    {
-        return $this->userRepository->findAllActiveUsers();
     }
 }
