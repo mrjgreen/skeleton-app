@@ -1,6 +1,5 @@
 {
     "require": {
-        "mrjgreen/error": "*",
         "phroute/phroute": "2.*",
         "filp/whoops": "*",
         "symfony/http-foundation": "*",
