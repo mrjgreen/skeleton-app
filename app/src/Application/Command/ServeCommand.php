@@ -17,7 +17,7 @@ class ServeCommand extends CommandAbstract
     {
         $host = "localhost:" . $this->input->getOption('port');
 
-        $docRoot = $this->container['paths']['public'];
+        $docRoot = $this->container['path.public'];
 
         $this->success("Running server on $host");
         $this->comment("php -S $host -t " . $docRoot);

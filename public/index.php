@@ -25,4 +25,4 @@ $app = require __DIR__ . '/../app/app.php';
  *
  * We then send the response to the browser
  */
-$app->call('dispatch', [$app['request']])->send();
+$app->call('dispatch', [$app['request']]);

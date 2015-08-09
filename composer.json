@@ -1,12 +1,10 @@
 {
     "require": {
         "phroute/phroute": "2.*",
-        "filp/whoops": "*",
         "symfony/http-foundation": "*",
-        "twig/twig": "*",
         "symfony/console": "~2.6",
+        "twig/twig": "*",
         "psr/log": "~1.0",
-        "monolog/monolog": "~1.12",
         "league/container": "~1.1",
         "symfony/debug": "^2.7"
     },
@@ -14,7 +12,7 @@
         "phpunit/phpunit": "~4.4"
     },
     "autoload": {
-        "files" : ["app/helpers.php", "tests/TestCase.php"],
+        "files" : ["tests/TestCase.php"],
         "psr-4": {
             "Application\\": "app/src/Application"
         }
