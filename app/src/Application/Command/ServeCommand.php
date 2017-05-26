@@ -8,6 +8,7 @@ class ServeCommand extends CommandAbstract
     {
         $this
             ->setName('serve')
+            ->addOption('host', 'l', InputOption::VALUE_REQUIRED, "Set the host for the webserver to listen on", "0.0.0.0")
             ->addOption('port', 'p', InputOption::VALUE_REQUIRED, "Set the port for the webserver to run on", 8080)
             ->setDescription('Run the local development server')
         ;
@@ -15,7 +16,7 @@ class ServeCommand extends CommandAbstract
 
     protected function fire()
     {
-        $host = "localhost:" . $this->input->getOption('port');
+        $host = $this->input->getOption('host') . ":" . $this->input->getOption('port');
 
         $docRoot = $this->container['paths']['public'];
 

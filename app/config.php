@@ -26,10 +26,10 @@ return [
 
     'database.connections' => [
         'mysql' => [
-            'host'      => 'localhost',
+            'host'      => 'mariadb',
             'username'  => 'root',
             'password'  => 'password',
-            'database'  => 'test',
+            'database'  => 'skeleton_app',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'driver'    => 'mysql',

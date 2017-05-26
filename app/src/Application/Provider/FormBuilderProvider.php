@@ -13,7 +13,7 @@ class FormBuilderProvider implements ProviderInterface
      */
     public function register(Container $app)
     {
-        $app->add('Symfony\Component\Form\FormFactoryInterface', function() use($app)
+        $app['Symfony\Component\Form\FormFactoryInterface'] = function() use($app)
         {
             $csrfSecret = $app['config']['app.csrf_secret'];
 
@@ -22,6 +22,6 @@ class FormBuilderProvider implements ProviderInterface
                     ->addExtension(new HttpFoundationExtension())
                     ->addExtension(new CsrfExtension(new SessionCsrfProvider($app['session'], $csrfSecret)))
                     ->getFormFactory();
-        });
+        };
     }
 }

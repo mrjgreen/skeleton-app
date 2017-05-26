@@ -18,7 +18,7 @@ class ViewProvider
             ));
 
             $twig = new \Twig_Environment($loader, array(
-                'cache' => $app['config']['view.cache'] ? $app['paths']['storage'] . '/views' : null,
+                'cache' => $app['config']['view.cache'] ? $app['paths']['storage'] . '/views' : false,
             ));
 
             $twig->addExtension(new DummyTranslationFilters());

@@ -3,8 +3,9 @@
 use Symfony\Component\HttpFoundation\Session\Storage\MockArraySessionStorage;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Request;
+use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 
-class TestCase extends PHPUnit_Framework_TestCase
+class TestCase extends PHPUnitTestCase
 {
     /**
      * @var League\Container\Container

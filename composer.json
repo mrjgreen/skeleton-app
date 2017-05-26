@@ -1,24 +1,24 @@
 {
     "require": {
-        "mrjgreen/database": "^2.3",
+        "mrjgreen/database": "^2.5",
         "mrjgreen/validation": "dev-master",
-        "phroute/phroute": "2.*",
-        "phroute/authentic": "*",
-        "filp/whoops": "*",
-        "psr/log": "~1.0",
-        "monolog/monolog": "~1.12",
-        "league/container": "~1.1",
-        "swiftmailer/swiftmailer": "@stable",
-        "twig/twig": "*",
-        "symfony/http-foundation": "*",
-        "symfony/console": "~2.6",
-        "symfony/debug": "^2.7",
-        "symfony/form": "~2.6",
-        "symfony/security-csrf": "~2.6",
-        "symfony/twig-bridge": "~2.6"
+        "phroute/phroute": "^2.1",
+        "phroute/authentic": "^0.9.0",
+        "filp/whoops": "^2.1",
+        "psr/log": "^1.0",
+        "monolog/monolog": "^1.22",
+        "league/container": "^1.0",
+        "swiftmailer/swiftmailer": "^5.4",
+        "twig/twig": "^2.3",
+        "symfony/console": "^3.2",
+        "symfony/debug": "^3.2",
+        "symfony/form": "^3.2",
+        "symfony/security-csrf": "^3.2",
+        "symfony/twig-bridge": "^3.2",
+        "symfony/http-foundation": "^3.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.4"
+      "phpunit/phpunit": "^6.1"
     },
     "autoload": {
         "files" : ["app/helpers.php", "tests/TestCase.php"],

@@ -1,0 +1,26 @@
+{
+    "require": {
+        "mrjgreen/database": "^2.3",
+        "mrjgreen/validation": "dev-master",
+        "phroute/phroute": "2.*",
+        "phroute/authentic": "*",
+        "filp/whoops": "*",
+        "psr/log": "~1.0",
+        "monolog/monolog": "~1.12",
+        "league/container": "~1.1",
+        "swiftmailer/swiftmailer": "@stable",
+        "twig/twig": "*",
+        "symfony/http-foundation": "*",
+        "symfony/console": "~2.6",
+        "symfony/debug": "^2.7",
+        "symfony/form": "~2.6",
+        "symfony/security-csrf": "~2.6",
+        "symfony/twig-bridge": "~2.6"
+    },
+    "autoload": {
+        "files" : ["app/helpers.php", "tests/TestCase.php"],
+        "psr-4": {
+            "Application\\": "app/src/Application"
+        }
+    }
+}

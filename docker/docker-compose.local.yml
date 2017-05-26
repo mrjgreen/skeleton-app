@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  app:
+    build: ./app
+    volumes:
+        - "../:/app"
+    ports:
+        - "8091:8080"
+    command: /app/task serve
+
+  mariadb:
+    image: mariadb
+    environment:
+        - MYSQL_ROOT_PASSWORD=password
+    volumes:
+        - "./sql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d"
+    ports:
+        - "3306:3306"

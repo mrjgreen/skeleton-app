@@ -1,4 +1,6 @@
-CREATE DATABASE test;
+CREATE DATABASE `skeleton_app`;
+
+USE `skeleton_app`;
 
 CREATE TABLE `user` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
