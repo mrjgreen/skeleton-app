@@ -34,7 +34,7 @@ class ControllerProvider
                 ->withMethodCall('setRequest', ['request'])
                 ->withMethodCall('setView', ['view'])
                 ->withMethodCall('setSession', ['session'])
-                //->withMethodCall('setFormHelper', ['Application\Form\FormHelper'])
+                ->withMethodCall('setFormHelper', ['Application\Form\FormHelper'])
             ;
         }
     }

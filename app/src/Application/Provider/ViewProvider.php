@@ -23,13 +23,16 @@ class ViewProvider
 
             $twig->addExtension(new DummyTranslationFilters());
 
-            $formEngine = new TwigRendererEngine(array('bootstrap_3_horizontal_layout.html.twig'));
-            $formEngine->setEnvironment($twig);
+            $formEngine = new TwigRendererEngine(array('bootstrap_3_horizontal_layout.html.twig'), $twig);
+
+            $twig->addRuntimeLoader(new \Twig_FactoryRuntimeLoader(array(
+                TwigRenderer::class => function () use ($formEngine) {
+                    return new TwigRenderer($formEngine);
+                },
+            )));
 
             // add the FormExtension to Twig
-            $twig->addExtension(
-                new FormExtension(new TwigRenderer($formEngine))
-            );
+            $twig->addExtension(new FormExtension());
 
             return $twig;
         };
