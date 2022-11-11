@@ -1,6 +1,7 @@
-<?php namespace Application\Provider;
+<?php
+namespace Application\Provider;
 
-use League\Container\Container as Container;
+use League\Container\Container;
 
 
 interface ProviderInterface

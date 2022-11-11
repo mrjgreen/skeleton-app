@@ -3,16 +3,16 @@
 class HomePageTest extends TestCase
 {
 
-    /**
-     * Check the core home page and login routes
-     */
+	/**
+	 * Check the core home page and login routes
+	 */
 	public function testAvailability()
 	{
-        // home page
+		// home page
 		$response = $this->call('GET', '/');
 		$this->assertEquals(200, $response->getStatusCode());
 
-        // 404 page
+		// 404 page
 		$response = $this->call('GET', 'this is an unknown route');
 		$this->assertEquals(404, $response->getStatusCode());
 	}

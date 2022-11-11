@@ -1,8 +1,11 @@
 <?php
 
-use Symfony\Component\Debug\ErrorHandler;
-// Convert errors to exceptions for the application
-ErrorHandler::register();
+use League\Container\Argument\Literal;
+use Symfony\Component\ErrorHandler\Debug;
+
+Debug::enable();
+
+require __DIR__ . '/helpers.php';
 
 $app = new \League\Container\Container;
 
@@ -14,15 +17,11 @@ $app = new \League\Container\Container;
  * Useful application file paths can be configured centrally, relative to
  * this directory for simple directory refactoring
  */
-$app['paths'] = array(
-    'app'       => __DIR__,
-    'public'    => __DIR__ . '/../public',
-    'config'    => __DIR__ . '/config.php',
-    'view'      => __DIR__ . '/views',
-    'storage'   => __DIR__ . '/storage',
-    'routes'    => __DIR__ . '/routes.php',
-    'commands'    => __DIR__ . '/commands.php',
-);
+$app->add('paths', new Literal\ArrayArgument([
+    'app' => __DIR__,
+    'config' => __DIR__ . '/config.php',
+    'routes' => __DIR__ . '/routes.php',
+]));
 
 /*
  *--------------------------------------------------------------------------
@@ -35,16 +34,14 @@ $app['paths'] = array(
  */
 $providers = array(
     new Application\Provider\ConfigProvider,
-    new Application\Provider\ViewProvider,
-    new Application\Provider\LogProvider,
     new Application\Provider\RequestProvider,
-    new Application\Provider\SessionProvider,
     new Application\Provider\RouterProvider,
     new Application\Provider\ControllerProvider,
     new Application\Provider\DispatchProvider,
-    new Application\Provider\CommandProvider,
 );
 
-array_walk($providers, function($provider) use($app){ $provider->register($app); });
+array_walk($providers, function ($provider) use ($app) {
+    $provider->register($app);
+});
 
 return $app;

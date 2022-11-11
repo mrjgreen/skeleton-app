@@ -1,18 +1,18 @@
-<?php
+<?php declare(strict_types=1);
+
 if (php_sapi_name() == 'cli-server') {
 
     // This allows us to emulate Apache's "mod_rewrite" from the built-in PHP web server.
     $uri = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
-    if ($uri !== '/' and is_file(__DIR__ . $uri))
-    {
+    if ($uri !== '/' and is_file(__DIR__ . $uri)) {
         return false;
     }
 }
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$app = require __DIR__ . '/../app/app.php';
+$app = require __DIR__ . '/app.php';
 
 /*
  *--------------------------------------------------------------------------
@@ -25,4 +25,8 @@ $app = require __DIR__ . '/../app/app.php';
  *
  * We then send the response to the browser
  */
-$app->call('dispatch', [$app['request']])->send();
+$dispatch = $app->get('dispatch');
+$request = $app->get('request');
+$response = $dispatch($request);
+
+(new Laminas\HttpHandlerRunner\Emitter\SapiEmitter)->emit($response);

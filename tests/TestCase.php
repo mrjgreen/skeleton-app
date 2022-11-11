@@ -1,38 +1,26 @@
 <?php
 
-use Symfony\Component\HttpFoundation\Session\Storage\MockArraySessionStorage;
-use Symfony\Component\HttpFoundation\Session\Session;
-use Symfony\Component\HttpFoundation\Request;
+use Laminas\Diactoros\ServerRequest;
+use League\Route\Router;
+use League\Container\Container;
+use Psr\Http\Message\ResponseInterface;
 
-class TestCase extends PHPUnit_Framework_TestCase
+class TestCase extends PHPUnit\Framework\TestCase
 {
-    /**
-     * @var League\Container\Container
-     */
-    private $app;
+    private Container $app;
 
-    /**
-     * @var Phroute\Phroute\Dispatcher
-     */
-    private $router;
+    private Router $router;
 
-    public function setUp()
+    public function setUp(): void
     {
-        $this->app = include __DIR__ . '/../app/app.php';
+        $this->app = include __DIR__ . '/../src/app.php';
 
-        // We can't use real sessions so we need to override the container's session with a mock session
-        $this->app->singleton('session', new Session(new MockArraySessionStorage()));
-
-        $this->router = $this->app['router'];
+        $this->router = $this->app->get('router');
     }
 
-    /**
-     * @param $method string
-     * @param $route string
-     * @return Symfony\Component\HttpFoundation\Response
-     */
-    public function call($method, $route)
+    public function call(string $method, string $uri): ResponseInterface
     {
-        return $this->app->call('dispatch', [Request::create($route, $method)]);
+        $dispatch = $this->app->get('dispatch');
+        return $dispatch(new ServerRequest(method: $method, uri: $uri));
     }
 }
