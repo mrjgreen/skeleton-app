@@ -1,4 +1,6 @@
 <?php
+use League\Route\RouteGroup;
+use League\Route\Router;
 
 function camelCaseToDashed($string)
 {
@@ -7,41 +9,37 @@ function camelCaseToDashed($string)
 
 function buildControllerParameters(ReflectionMethod $method)
 {
-    $params = [];
+    $params = "";
 
     foreach ($method->getParameters() as $param) {
-        $params[] = "{" . $param->getName() . "}" . ($param->isOptional() ? '?' : '');
+        $params .= "/{" . $param->getName() . "}" . ($param->isOptional() ? '?' : '');
     }
 
-    return implode("/", $params);
+    return $params;
 }
 
-/**
- * @param $route
- * @param $classname
- * @param array $filters
- * @return array
- */
-function getRoutesForController($classname)
+function getRoutesForController(string $classname, string $prefix = null)
 {
     $reflection = new ReflectionClass($classname);
 
-    $validMethods = ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"];
+    $httpMethods = ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"];
 
     $routes = [];
 
     foreach ($reflection->getMethods(ReflectionMethod::IS_PUBLIC) as $method) {
-        foreach ($validMethods as $valid) {
-            if (stripos($method->name, $valid) === 0) {
-                $methodName = camelCaseToDashed(substr($method->name, strlen($valid)));
+        foreach ($httpMethods as $httpMethod) {
+            if (stripos($method->name, $httpMethod) === 0) {
+                $methodName = camelCaseToDashed(substr($method->name, strlen($httpMethod)));
 
                 $params = buildControllerParameters($method);
 
                 if ($methodName === 'index') {
-                    $methodName = "/";
+                    $methodName = "";
                 }
 
-                $routes[] = [$valid, $methodName . $params, [$classname, $method->name]];
+                $route = $prefix . "/" . $methodName . $params;
+
+                $routes[] = [$httpMethod, $route, [$classname, $method->name]];
 
                 break;
             }

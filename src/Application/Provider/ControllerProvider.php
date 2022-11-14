@@ -10,11 +10,6 @@ class ControllerProvider
         \Application\Controller\HealthController::class => [],
     ];
 
-    public static function controllers()
-    {
-        return array_keys(self::$controllers);
-    }
-
     public function register(Container $app)
     {
         foreach (self::$controllers as $controller => $ctorArgs) {

@@ -2,17 +2,18 @@
 namespace Application\Controller;
 
 use Laminas\Diactoros\Response\JsonResponse;
+use League\Route\Http\Exception\BadRequestException;
+
 
 class HealthController extends ApiControllerAbstract
 {
     public function getHealth()
     {
-        // Can check dependencies here if needed
-        return ["ok" => true];
+        return new JsonResponse(["ok" => true]);
     }
 
     public function getException()
     {
-        throw new \Exception("Error");
+        throw new BadRequestException("Error");
     }
 }

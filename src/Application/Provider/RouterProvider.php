@@ -14,19 +14,11 @@ class RouterProvider implements ProviderInterface
      */
     public function register(Container $app)
     {
-        $responseFactory = new ResponseFactory();
-        $jsonStrategy = new JsonStrategy($responseFactory);
-
-        /*
-         * We start php by creating a route collector and then include the routes file, which will attach all our routes.
-         */
-        $app->add('router', function () use ($app, $jsonStrategy) {
+        $app->add('router', function () use ($app) {
 
             $appStrategy = (new ApplicationStrategy)->setContainer($app);
 
-            $router = (new Router)
-                ->setStrategy($appStrategy)
-                ->setStrategy($jsonStrategy);
+            $router = (new Router)->setStrategy($appStrategy);
 
             $paths = $app->get('paths');
 

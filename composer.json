@@ -22,6 +22,6 @@
     },
     "scripts": {
         "test": "./vendor/bin/phpunit tests",
-        "start": "php -S localhost:8000 src/index.php"
+        "start": "php -S localhost:8008 src/index.php"
     }
 }

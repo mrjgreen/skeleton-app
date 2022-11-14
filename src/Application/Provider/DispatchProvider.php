@@ -7,24 +7,15 @@ use Laminas\Diactoros\ServerRequest;
 
 class DispatchProvider implements ProviderInterface
 {
-    private $app;
     /**
      * @param Container $app
      */
     public function register(Container $app)
     {
-        $this->app = $app;
-
         $dispatch = function (ServerRequest $request) use ($app) {
-            $response = $app->get('router')->dispatch($request);
-
-            // Head responses should not return a content body
-            // $request->getMethod() == 'head' && $response->setContent(null);
-
-            return $response;
+            return $app->get('router')->dispatch($request);
         };
 
         $app->add('dispatch', new Literal\CallableArgument($dispatch));
     }
-
 }
