@@ -9,7 +9,7 @@ class HomePageTest extends TestCase
 	public function testAvailability()
 	{
 		// home page
-		$response = $this->call('GET', '/');
+		$response = $this->call('GET', '/health');
 		$this->assertEquals(200, $response->getStatusCode());
 
 		// 404 page

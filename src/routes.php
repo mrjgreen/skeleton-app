@@ -1,17 +1,13 @@
 <?php
 
+use Application\Controller\ApiController;
 use Application\Controller\HealthController;
 use League\Route\Router;
-use \Application\Controller\ApiController;
 
 return function (Router $router) {
 
-    $routes = [
-        ...getRoutesForController(HealthController::class),
-        ...getRoutesForController(ApiController::class, "/api")
-    ];
+    $router->get("/health", [HealthController::class, "getHealth"]);
+    $router->get("/exception", [HealthController::class, "getException"]);
+    $router->get("/api", [ApiController::class, "getIndex"]);
 
-    foreach($routes as $route) {
-        $router->map(...$route);
-    }
 };

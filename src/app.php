@@ -2,8 +2,10 @@
 
 use League\Container\Argument\Literal;
 use Symfony\Component\ErrorHandler\Debug;
+use Symfony\Component\ErrorHandler\DebugClassLoader;
 
 Debug::enable();
+DebugClassLoader::disable();
 
 require __DIR__ . '/helpers.php';
 
@@ -34,10 +36,8 @@ $app->add('paths', new Literal\ArrayArgument([
  */
 $providers = array(
     new Application\Provider\ConfigProvider,
-    new Application\Provider\RequestProvider,
     new Application\Provider\RouterProvider,
     new Application\Provider\ControllerProvider,
-    new Application\Provider\DispatchProvider,
 );
 
 array_walk($providers, function ($provider) use ($app) {

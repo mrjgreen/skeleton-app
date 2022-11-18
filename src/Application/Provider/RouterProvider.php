@@ -1,11 +1,10 @@
 <?php
 namespace Application\Provider;
 
+use Laminas\Diactoros\ResponseFactory;
 use League\Route\Router;
-use League\Route\Strategy\ApplicationStrategy;
 use League\Container\Container;
 use League\Route\Strategy\JsonStrategy;
-use Laminas\Diactoros\ResponseFactory;
 
 class RouterProvider implements ProviderInterface
 {
@@ -14,11 +13,13 @@ class RouterProvider implements ProviderInterface
      */
     public function register(Container $app)
     {
-        $app->add('router', function () use ($app) {
+        $app->add(Router::class, function () use ($app) {
 
-            $appStrategy = (new ApplicationStrategy)->setContainer($app);
+            $responseFactory = new ResponseFactory;
 
-            $router = (new Router)->setStrategy($appStrategy);
+            $strategy = (new JsonStrategy($responseFactory))->setContainer($app);
+
+            $router = (new Router)->setStrategy($strategy);
 
             $paths = $app->get('paths');
 

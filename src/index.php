@@ -1,4 +1,6 @@
 <?php declare(strict_types=1);
+use Laminas\Diactoros\ServerRequestFactory;
+use League\Route\Router;
 
 if (php_sapi_name() == 'cli-server') {
 
@@ -25,8 +27,6 @@ $app = require __DIR__ . '/app.php';
  *
  * We then send the response to the browser
  */
-$dispatch = $app->get('dispatch');
-$request = $app->get('request');
-$response = $dispatch($request);
+$response = $app->get(Router::class)->dispatch(ServerRequestFactory::fromGlobals());
 
 (new Laminas\HttpHandlerRunner\Emitter\SapiEmitter)->emit($response);

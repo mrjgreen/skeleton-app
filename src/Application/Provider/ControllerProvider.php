@@ -14,8 +14,7 @@ class ControllerProvider
     {
         foreach (self::$controllers as $controller => $ctorArgs) {
             $app->add($controller)
-                ->addArguments($ctorArgs)
-                ->addMethodCall('setRequest', ['request']);
+                ->addArguments($ctorArgs);
         }
     }
 }
