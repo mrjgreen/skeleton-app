@@ -6,7 +6,7 @@ use League\Container\Container;
 class ControllerProvider
 {
     private static $controllers = [
-        \Application\Controller\HomeController::class => [],
+        \Application\Controller\ApiController::class => [],
         \Application\Controller\HealthController::class => [],
     ];
 

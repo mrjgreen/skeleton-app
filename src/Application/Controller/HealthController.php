@@ -5,7 +5,7 @@ use Laminas\Diactoros\Response\JsonResponse;
 use League\Route\Http\Exception\BadRequestException;
 
 
-class HealthController extends ApiControllerAbstract
+class HealthController
 {
     public function getHealth()
     {

@@ -8,18 +8,15 @@ use League\Route\Strategy\JsonStrategy;
 
 class RouterProvider implements ProviderInterface
 {
-    /**
-     * @param Container $app
-     */
     public function register(Container $app)
     {
         $app->add(Router::class, function () use ($app) {
 
-            $responseFactory = new ResponseFactory;
+            $strategy = new JsonStrategy(new ResponseFactory);
+            $strategy->setContainer($app);
 
-            $strategy = (new JsonStrategy($responseFactory))->setContainer($app);
-
-            $router = (new Router)->setStrategy($strategy);
+            $router = new Router;
+            $router->setStrategy($strategy);
 
             $paths = $app->get('paths');
 

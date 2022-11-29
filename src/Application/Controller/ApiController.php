@@ -4,7 +4,7 @@ namespace Application\Controller;
 use Laminas\Diactoros\Response\JsonResponse;
 
 
-class ApiController extends ApiControllerAbstract
+class ApiController
 {
     public function getIndex()
     {

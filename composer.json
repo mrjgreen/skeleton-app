@@ -18,10 +18,15 @@
         "laminas/laminas-httphandlerrunner": "^2.4"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "phpstan/phpstan": "^1.9"
     },
     "scripts": {
         "test": "./vendor/bin/phpunit tests",
-        "start": "php -S localhost:8008 src/index.php"
+        "analyze": "vendor/bin/phpstan analyse --level 5 src tests",
+        "start": [
+            "Composer\\Config::disableProcessTimeout",
+            "php -S localhost:8008 src/index.php"
+        ]
     }
 }

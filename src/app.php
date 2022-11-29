@@ -1,6 +1,7 @@
 <?php
 
 use League\Container\Argument\Literal;
+use League\Container\Container;
 use Symfony\Component\ErrorHandler\Debug;
 use Symfony\Component\ErrorHandler\DebugClassLoader;
 
@@ -9,7 +10,7 @@ DebugClassLoader::disable();
 
 require __DIR__ . '/helpers.php';
 
-$app = new \League\Container\Container;
+$app = new Container;
 
 /*
  *--------------------------------------------------------------------------
@@ -40,8 +41,6 @@ $providers = array(
     new Application\Provider\ControllerProvider,
 );
 
-array_walk($providers, function ($provider) use ($app) {
-    $provider->register($app);
-});
+array_walk($providers, fn($provider) => $provider->register($app));
 
 return $app;
